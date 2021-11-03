@@ -1,0 +1,28 @@
+{% extends 'headerPage.html' %}
+
+   <br>
+     <br>
+    {% block content%}
+    
+    <h4 class="display-4 fw-normal">Upload Image for Object Detection</h4>
+
+    
+    <br>
+   
+    <form method="post" enctype="multipart/form-data" action="predictImage">
+  
+     {% csrf_token %}
+     <div class="col-md-4 col-sm-4"><label for="fname">Upload Image File Here:</label> </div> <input name="filePath" type="file"><br><br>
+ 
+     <input type="submit" class="btn btn-success" value="Detect" ></div>
+     <br>
+
+     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+     <h4 class="display-4 fw-normal text-center">The result of the image is {{predictedLabel}}</h4>
+     <img src={{output}} class="align-items-center" alt='image'>
+     
+     </form>
+     <br>
+ </div>
+
+{% endblock %}
